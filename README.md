@@ -10,8 +10,8 @@ Auteurs : Mattéo NOURISSON & Lény MARCOLINI
 * Base logicielle : f103-master (Samuel Poiraud - ESEO - 08/01/2024)
 
 ## Documentation
-* Synoptique général
-* Pinout du microcontrôleur
+* [Synoptique général](docs/img/synoptique.png)
+* [Pinout du microcontrôleur](docs/pinout.xlsx)
 * Périphériques internes
 * Périphériques externes
 * Conception logicielle
