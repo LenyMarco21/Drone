@@ -1,0 +1,5 @@
+../lib/bsp/systick.c:18:6:Systick_init	2
+../lib/bsp/systick.c:28:6:SysTick_Handler	4
+../lib/bsp/systick.c:46:8:Systick_add_callback_function	4
+../lib/bsp/systick.c:65:8:Systick_remove_callback_function	4
+../lib/bsp/systick.c:81:10:SYSTICK_get_time_us	2

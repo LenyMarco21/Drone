@@ -1,0 +1,5 @@
+../lib/bsp/MAX30100/MAX30100_BeatDetector.c:41:8:BEATDETECTOR_addSample	1
+../lib/bsp/MAX30100/MAX30100_BeatDetector.c:46:7:BEATDETECTOR_getRate	2
+../lib/bsp/MAX30100/MAX30100_BeatDetector.c:55:7:BEATDETECTOR_getCurrentThreshold	1
+../lib/bsp/MAX30100/MAX30100_BeatDetector.c:60:8:checkForBeat	15
+../lib/bsp/MAX30100/MAX30100_BeatDetector.c:123:6:decreaseThreshold	4

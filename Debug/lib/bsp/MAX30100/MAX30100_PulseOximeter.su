@@ -1,0 +1,13 @@
+../lib/bsp/MAX30100/MAX30100_PulseOximeter.c:49:7:dcr_step	24	static
+../lib/bsp/MAX30100/MAX30100_PulseOximeter.c:57:7:getDCW	16	static
+../lib/bsp/MAX30100/MAX30100_PulseOximeter.c:64:8:PulseOximeter_begin	24	static
+../lib/bsp/MAX30100/MAX30100_PulseOximeter.c:92:6:PulseOximeter_update	8	static
+../lib/bsp/MAX30100/MAX30100_PulseOximeter.c:100:7:PulseOximeter_getHeartRate	8	static
+../lib/bsp/MAX30100/MAX30100_PulseOximeter.c:105:9:PulseOximeter_getSpO2	8	static
+../lib/bsp/MAX30100/MAX30100_PulseOximeter.c:110:9:PulseOximeter_getRedLedCurrentBias	4	static
+../lib/bsp/MAX30100/MAX30100_PulseOximeter.c:115:6:PulseOximeter_setOnBeatDetectedCallback	16	static
+../lib/bsp/MAX30100/MAX30100_PulseOximeter.c:120:6:PulseOximeter_setIRLedCurrent	16	static
+../lib/bsp/MAX30100/MAX30100_PulseOximeter.c:126:6:PulseOximeter_shutdown	8	static
+../lib/bsp/MAX30100/MAX30100_PulseOximeter.c:131:6:PulseOximeter_resume	8	static
+../lib/bsp/MAX30100/MAX30100_PulseOximeter.c:136:6:PulseOximeter_checkSample	48	static
+../lib/bsp/MAX30100/MAX30100_PulseOximeter.c:180:6:PulseOximeter_checkCurrentBias	16	static

@@ -1,0 +1,3 @@
+../lib/bsp/MAX30100/MAX30100_SpO2Calculator.c:37:6:SP02CALCULATOR_update	48	static
+../lib/bsp/MAX30100/MAX30100_SpO2Calculator.c:61:6:SP02CALCULATOR_reset	4	static
+../lib/bsp/MAX30100/MAX30100_SpO2Calculator.c:70:9:SP02CALCULATOR_getSpO2	4	static

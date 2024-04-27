@@ -1,0 +1,4 @@
+../appli/main.c:16:6:writeLED	16	static
+../appli/main.c:21:8:readButton	8	static
+../appli/main.c:27:6:process_ms	4	static
+../appli/main.c:34:5:main	16	static
