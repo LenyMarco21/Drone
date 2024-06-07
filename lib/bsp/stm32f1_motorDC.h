@@ -14,11 +14,13 @@
 
 typedef enum
 {
-	MOTOR_ID_0,
-	MOTOR_ID_1,
-	MOTOR_ID_2,
-	MOTOR_ID_3,
-	MOTOR_NB,		//nombre max de moteurs !
+	MOTOR_ID_0 = 0,
+	MOTOR_ID_1 = 1,
+	MOTOR_ID_2 = 2,
+	MOTOR_ID_3 = 3,
+	MOTOR_ID_4 = 4,
+	MOTOR_ID_5 = 5,
+	MOTOR_NB = 6,		//nombre max de moteurs !
 	MOTOR_ID_NONE =-1
 }motor_id_e;
 

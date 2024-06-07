@@ -1,0 +1,2 @@
+../appli/motor.c:25:6:MOTOR_init	1
+../appli/motor.c:43:6:MOTOR_drive	2

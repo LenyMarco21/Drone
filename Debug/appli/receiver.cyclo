@@ -1,0 +1,7 @@
+../lib/CMSIS/core/core_cm3.h:1511:22:__NVIC_EnableIRQ	2
+../lib/CMSIS/core/core_cm3.h:1547:22:__NVIC_DisableIRQ	2
+../appli/receiver.c:90:6:RECEIVER_init	1
+../appli/receiver.c:123:8:RECEIVER_data_available	1
+../appli/receiver.c:137:8:RECEIVER_data_error	1
+../appli/receiver.c:151:6:RECEIVER_fetch_data	1
+../appli/receiver.c:173:13:RECEIVER_callback_routine	8

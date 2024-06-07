@@ -1,0 +1,222 @@
+\doxysection{config.\+h}
+\hypertarget{config_8h_source}{}\label{config_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ config.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ Created\ on:\ 31\ mars\ 2016}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ \ \ \ \ Author:\ Nirgal}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ CONFIG\_H\_}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ CONFIG\_H\_}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}stm32f1xx\_hal.h"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{comment}{//Choix\ de\ la\ cible\ utilisée.}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ NUCLEO\ \ 0}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ BLUEPILL\ 1}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ MY\_BLUEPILL\_IS\_COUNTERFEIT\ \ BLUEPILL}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ TRACE\ \ \ 0\ \ \ \ \ \ \ }\textcolor{comment}{//permet\ le\ débogage\ sur\ un\ simulateur\ QEMU.\ Doit\ rester\ à 0\ par\ défaut.}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{comment}{//\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_}}
+\DoxyCodeLine{00022\ \textcolor{comment}{//Configuration\ des\ broches\ utilisées...}}
+\DoxyCodeLine{00023\ \textcolor{comment}{//Ces\ macros\ permettent\ d'utiliser\ dans\ le\ code\ des\ noms\ explicites\ (LED\_GREEN,\ ...)}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#if\ NUCLEO}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\ \ \ \ \#define\ LED\_GREEN\_GPIO\ \ \ \ \ \ GPIOA}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\ \ \ \ \#define\ LED\_GREEN\_PIN\ \ \ \ \ \ \ GPIO\_PIN\_5}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\ \ \ \ \#define\ BLUE\_BUTTON\_GPIO\ \ \ \ GPIOC}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\ \ \ \ \#define\ BLUE\_BUTTON\_PIN\ \ \ \ \ GPIO\_PIN\_13}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\ \ \ \ \#if\ BLUEPILL}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#error\ "{}Vous\ ne\ pouvez\ pas\ définir\ à la\ fois\ NUCLEO\ et\ BLUEPILL\ !"{}}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#if\ BLUEPILL}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\ \ \ \ \#define\ LED\_GREEN\_GPIO\ \ \ \ \ \ GPIOC}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\ \ \ \ \#define\ LED\_GREEN\_PIN\ \ \ \ \ \ \ GPIO\_PIN\_13}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\ \ \ \ \#define\ BLUE\_BUTTON\_GPIO\ \ \ \ GPIOA}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\ \ \ \ \#define\ BLUE\_BUTTON\_PIN\ \ \ \ \ GPIO\_PIN\_15\ \ \ \ \ }\textcolor{comment}{//Pas\ de\ bouton\ sur\ la\ bluepill,\ choisissez\ le\ port\ souhaité si\ vous\ en\ reliez\ un.}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{comment}{//Choisir\ les\ broches\ pour\ l'UART1,\ parmi\ ces\ deux\ possibilités :}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ UART1\_ON\_PB6\_PB7}}
+\DoxyCodeLine{00042\ \textcolor{comment}{//\#define\ UART1\_ON\_PA9\_PA10}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{comment}{//Choisir\ les\ broches\ pour\ l'UART2,\ parmi\ ces\ deux\ possibilités :}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ UART2\_ON\_PA2\_PA3}}
+\DoxyCodeLine{00046\ \textcolor{comment}{//\#define\ UART2\_ON\_PD5\_PD6}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{comment}{//Choisir\ les\ broches\ pour\ l'UART3,\ parmi\ ces\ deux\ possibilités :}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#define\ UART3\_ON\_PB10\_PB11}}
+\DoxyCodeLine{00050\ \textcolor{comment}{//\#define\ UART3\_ON\_PD8\_PD9}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{comment}{//\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{comment}{//Ci\ dessous,\ les\ defines\ permettant\ d'activer\ les\ modules\ de\ la\ librairie.}}
+\DoxyCodeLine{00057\ \textcolor{comment}{//Attention,\ s'ils\ sont\ tous\ activés,\ le\ code\ compilé est\ trop\ volumineux\ pour\ rentrer\ dans\ la\ mémoire\ de\ 64kio\ du\ STM32F103C8T6\ la\ Bluepill.}}
+\DoxyCodeLine{00058\ \textcolor{comment}{//Le\ STM32F103RBT6\ de\ la\ carte\ Nucleo\ dispose\ quant\ à lui\ d'une\ mémoire\ de\ 128kio\ de\ flash.}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#define\ USE\_BSP\_EXTIT\ \ \ \ \ \ \ \ \ \ \ 1\ }\textcolor{comment}{//Utilisation\ du\ module\ de\ gestion\ des\ it\ externe\ :\ stm32f1\_extit.c/h}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#define\ USE\_INTERNAL\_FLASH\_AS\_EEPROM\ \ \ \ 0}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#define\ USE\_BSP\_TIMER\ \ \ \ \ \ \ \ \ \ \ 1\ }\textcolor{comment}{//Utilisation\ de\ stm32f1\_timer.c/h}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#define\ USE\_ADC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{comment}{//Ces\ configurations\ permettent\ d'activer\ les\ entrées\ analogiques\ souhaitées.}}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{comment}{//16\ entrées\ analogiques\ peuvent\ être\ activées\ maximum.}}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{comment}{//2\ entrées\ analogiques\ doivent\ être\ activées\ minimum.\ (Vref\ est\ un\ choix\ possible\ si\ vous\ utilisez\ une\ seule\ entrée)}}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\ \ \ \ \#define\ USE\_AN0\ \ \ \ \ \ \ \ \ 1\ \ \ }\textcolor{comment}{//Broche\ correspondante\ :\ PA0}}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\ \ \ \ \#define\ USE\_AN1\ \ \ \ \ \ \ \ \ 1\ \ \ }\textcolor{comment}{//Broche\ correspondante\ :\ PA1}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\ \ \ \ \#define\ USE\_AN2\ \ \ \ \ \ \ \ \ 0\ \ \ }\textcolor{comment}{//Broche\ correspondante\ :\ PA2\ \ \ //Sur\ la\ Nucleo,\ cette\ broche\ n'est\ pas\ câblée !}}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\ \ \ \ \#define\ USE\_AN3\ \ \ \ \ \ \ \ \ 0\ \ \ }\textcolor{comment}{//Broche\ correspondante\ :\ PA3\ \ \ //Sur\ la\ Nucleo,\ cette\ broche\ n'est\ pas\ câblée !}}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\ \ \ \ \#define\ USE\_AN4\ \ \ \ \ \ \ \ \ 0\ \ \ }\textcolor{comment}{//Broche\ correspondante\ :\ PA4}}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\ \ \ \ \#define\ USE\_AN5\ \ \ \ \ \ \ \ \ 0\ \ \ }\textcolor{comment}{//Broche\ correspondante\ :\ PA5}}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\ \ \ \ \#define\ USE\_AN6\ \ \ \ \ \ \ \ \ 0\ \ \ }\textcolor{comment}{//Broche\ correspondante\ :\ PA6}}
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\ \ \ \ \#define\ USE\_AN7\ \ \ \ \ \ \ \ \ 0\ \ \ }\textcolor{comment}{//Broche\ correspondante\ :\ PA7}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\ \ \ \ \#define\ USE\_AN8\ \ \ \ \ \ \ \ \ 0\ \ \ }\textcolor{comment}{//Broche\ correspondante\ :\ PB0}}
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\ \ \ \ \#define\ USE\_AN9\ \ \ \ \ \ \ \ \ 0\ \ \ }\textcolor{comment}{//Broche\ correspondante\ :\ PB1}}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\ \ \ \ \#define\ USE\_AN10\ \ \ \ \ \ \ \ 0\ \ \ }\textcolor{comment}{//Broche\ correspondante\ :\ PC0\ \ \ //Sur\ la\ Bluepill,\ cette\ broche\ n'est\ pas\ câblée !}}
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\ \ \ \ \#define\ USE\_AN11\ \ \ \ \ \ \ \ 0\ \ \ }\textcolor{comment}{//Broche\ correspondante\ :\ PC1\ \ \ //Sur\ la\ Bluepill,\ cette\ broche\ n'est\ pas\ câblée !}}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\ \ \ \ \#define\ USE\_AN12\ \ \ \ \ \ \ \ 0\ \ \ }\textcolor{comment}{//Broche\ correspondante\ :\ PC2\ \ \ //Sur\ la\ Bluepill,\ cette\ broche\ n'est\ pas\ câblée !}}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\ \ \ \ \#define\ USE\_AN13\ \ \ \ \ \ \ \ 0\ \ \ }\textcolor{comment}{//Broche\ correspondante\ :\ PC3\ \ \ //Sur\ la\ Bluepill,\ cette\ broche\ n'est\ pas\ câblée !}}
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\ \ \ \ \#define\ USE\_AN14\ \ \ \ \ \ \ \ 0\ \ \ }\textcolor{comment}{//Broche\ correspondante\ :\ PC4\ \ \ //Sur\ la\ Bluepill,\ cette\ broche\ n'est\ pas\ câblée !}}
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\ \ \ \ \#define\ USE\_AN15\ \ \ \ \ \ \ \ 0\ \ \ }\textcolor{comment}{//Broche\ correspondante\ :\ PC5\ \ \ //Sur\ la\ Bluepill,\ cette\ broche\ n'est\ pas\ câblée !}}
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\ \ \ \ \#define\ USE\_AN16\ \ \ \ \ \ \ \ 0\ \ \ }\textcolor{comment}{//Capteur\ de\ température\ interne}}
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\ \ \ \ \#define\ USE\_AN17\ \ \ \ \ \ \ \ 1\ \ \ }\textcolor{comment}{//Vref}}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#define\ USE\_SCREEN\_TFT\_ILI9341\ \ \ \ \ \ 0\ \ \ }\textcolor{comment}{//Ecran\ TFT\ 2.4}}
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\ \ \ \ \#if\ USE\_SCREEN\_TFT\_ILI9341}}
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ USE\_XPT2046\ \ \ \ \ \ \ \ \ 1\ \ \ }\textcolor{comment}{//Tactile}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ USE\_FONT11x18\ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ USE\_FONT7x10\ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ USE\_FONT16x26\ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#if\ BLUEPILL\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//Définition\ des\ broches\ CS,\ WRX\ et\ RST\ pour\ la\ BLUEPILL}}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \#define\ ILI9341\_CS\_PORT\ \ \ \ \ \ \ GPIOB}}
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \#define\ ILI9341\_CS\_PIN\ \ \ \ \ \ \ \ GPIO\_PIN\_11}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \#define\ ILI9341\_WRX\_PORT\ \ \ \ \ \ GPIOB}}
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \#define\ ILI9341\_WRX\_PIN\ \ \ \ \ \ \ GPIO\_PIN\_1}}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \#define\ ILI9341\_RST\_PORT\ \ \ \ \ \ GPIOB}}
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \#define\ ILI9341\_RST\_PIN\ \ \ \ \ \ \ GPIO\_PIN\_10}}
+\DoxyCodeLine{00108\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif\ }\textcolor{comment}{/*\ BLUEPILL\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#define\ USE\_SCREEN\_LCD2X16\ \ \ \ \ \ \ \ \ \ 0\ \ \ }\textcolor{comment}{//Ecran\ LCD\ 2x16}}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \textcolor{preprocessor}{\#define\ USE\_TFT\_PCD8544\ \ \ \ \ \ \ \ \ \ \ \ \ 0\ \ \ }\textcolor{comment}{//Ecran\ TFT\ Nokia}}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \textcolor{comment}{//Carte\ capteur\ IKS01A1\ :}}
+\DoxyCodeLine{00117\ \textcolor{preprocessor}{\#define\ USE\_SENSOR\_HTS221\ \ \ \ \ \ \ 0}\textcolor{comment}{//Humidité et\ température}}
+\DoxyCodeLine{00118\ \textcolor{preprocessor}{\#define\ USE\_SENSOR\_LPS25HB\ \ \ \ \ \ 0}\textcolor{comment}{//Pression\ (et\ température)}}
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\#define\ USE\_SENSOR\_LSM6DS0\ \ \ \ \ \ 0}\textcolor{comment}{//Accéléromètre\ et\ Gyroscope}}
+\DoxyCodeLine{00120\ \textcolor{preprocessor}{\#define\ USE\_SENSOR\_LIS3MDL\ \ \ \ \ \ 0}\textcolor{comment}{//Magnetometre}}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \textcolor{comment}{//Autres\ capteurs\ :}}
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\#define\ USE\_SENSOR\_LSM6DS3\ \ \ \ \ \ 0}\textcolor{comment}{//Accéléromètre\ et\ Gyroscope}}
+\DoxyCodeLine{00124\ \textcolor{preprocessor}{\#define\ USE\_SENSOR\_LPS22HB\ \ \ \ \ \ 0}\textcolor{comment}{//Pression\ (et\ température)}}
+\DoxyCodeLine{00125\ \textcolor{preprocessor}{\#define\ USE\_MLX90614\ \ \ \ \ \ \ \ \ \ \ \ 0\ \ \ }\textcolor{comment}{//Capteur\ de\ température\ sans\ contact}}
+\DoxyCodeLine{00126\ \textcolor{preprocessor}{\#define\ USE\_MPU6050\ \ \ \ \ \ \ \ \ \ \ \ \ 1}\textcolor{comment}{//Accéléromètre\ et\ Gyroscope}}
+\DoxyCodeLine{00127\ \textcolor{preprocessor}{\#define\ USE\_DHT11\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00128\ \textcolor{preprocessor}{\#define\ USE\_LD19\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \textcolor{preprocessor}{\#define\ USE\_MATRIX\_KEYBOARD\ \ \ \ \ 0}}
+\DoxyCodeLine{00131\ \textcolor{preprocessor}{\#define\ USE\_MATRIX\_LED\ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00132\ \textcolor{preprocessor}{\#define\ USE\_CAPACITIVE\_KEYBOARD\ 0}}
+\DoxyCodeLine{00133\ \textcolor{preprocessor}{\#define\ USE\_MATRIX\_LED\_32\_32\ \ \ \ 0}}
+\DoxyCodeLine{00134\ \textcolor{preprocessor}{\#define\ USE\_FINGERPRINT\ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \textcolor{preprocessor}{\#define\ USE\_MCP23S17\ \ \ \ \ \ \ \ \ \ \ \ 0\ }\textcolor{comment}{//Port\ expander\ I/O\ en\ SPI}}
+\DoxyCodeLine{00137\ \textcolor{preprocessor}{\#define\ USE\_MCP23017\ \ \ \ \ \ \ \ \ \ \ \ 0\ }\textcolor{comment}{//Port\ expander\ I/O\ en\ I2C}}
+\DoxyCodeLine{00138\ \textcolor{preprocessor}{\#define\ USE\_APDS9960\ \ \ \ \ \ \ \ \ \ \ \ 0\ \ \ }\textcolor{comment}{//Capteur\ de\ gestes,\ de\ couleur,\ de\ luminosité ambiante}}
+\DoxyCodeLine{00139\ \textcolor{preprocessor}{\#define\ USE\_BH1750FVI\ \ \ \ \ \ \ \ \ \ \ 0\ \ \ }\textcolor{comment}{//Capteur\ de\ luminosité ambiante}}
+\DoxyCodeLine{00140\ \textcolor{preprocessor}{\#define\ USE\_BMP180\ \ \ \ \ \ \ \ \ \ \ \ \ \ 0\ \ \ }\textcolor{comment}{//Capteur\ de\ pression}}
+\DoxyCodeLine{00141\ \textcolor{preprocessor}{\#define\ USE\_MOTOR\_DC\ \ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00142\ \textcolor{preprocessor}{\#define\ USE\_STEPPER\_MOTOR\ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00143\ \textcolor{preprocessor}{\ \ \ \ \#define\ STEPPER\_DRIVER\_TB6600\_IS\_DRIVEN\_BY\_OPENDRAIN\_OUTPUTS\ \ \ \ 0\ \ \ }\textcolor{comment}{//l'un\ des\ deux\ modes\ au\ choix\ !}}
+\DoxyCodeLine{00144\ \textcolor{preprocessor}{\ \ \ \ \#define\ STEPPER\_DRIVER\_TB6600\_IS\_DRIVEN\_BY\_MOSFET\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1\ \ \ }\textcolor{comment}{//l'un\ des\ deux\ modes\ au\ choix\ !}}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \textcolor{preprocessor}{\#define\ USE\_RTC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00147\ \textcolor{preprocessor}{\#define\ USE\_ESP8266\ \ \ \ \ \ \ \ \ \ \ \ \ 0}\textcolor{comment}{//Module\ Wifi}}
+\DoxyCodeLine{00148\ \textcolor{preprocessor}{\#define\ USE\_NFC03A1\ \ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00149\ \textcolor{preprocessor}{\#define\ USE\_EPAPER\ \ \ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00150\ \textcolor{preprocessor}{\#define\ USE\_GPS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00151\ \textcolor{preprocessor}{\#define\ USE\_HCSR04\ \ \ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00152\ \textcolor{preprocessor}{\#define\ USE\_HX711\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00153\ \textcolor{preprocessor}{\#define\ USE\_DAC\_MCP4921\ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00154\ \textcolor{preprocessor}{\#define\ USE\_IR\_EMITTER\ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00155\ \textcolor{preprocessor}{\#define\ USE\_IR\_RECEIVER\ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00156\ \textcolor{preprocessor}{\#define\ USE\_IR\_RECEIVER\_NEC\ \ \ \ \ 0}}
+\DoxyCodeLine{00157\ \textcolor{preprocessor}{\#define\ USE\_DS18B20\ \ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00158\ \textcolor{preprocessor}{\#define\ USE\_MIDI\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00159\ \textcolor{preprocessor}{\#define\ USE\_PS2\_KEYBOARD\ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00160\ \textcolor{preprocessor}{\#define\ USE\_VL53L0\ \ \ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00161\ \textcolor{preprocessor}{\#if\ USE\_VL53L0}}
+\DoxyCodeLine{00162\ \textcolor{preprocessor}{\ \ \ \ \#define\ VL53L0X\_I2C\ \ \ \ \ \ \ \ \ \ \ \ \ I2C1}}
+\DoxyCodeLine{00163\ \textcolor{preprocessor}{\ \ \ \ \#define\ VL53\_NB\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{comment}{//Vous\ devez\ définir\ ci\ dessous\ autant\ de\ lignes\ VL\_x\ que\ le\ nombre\ indiqué ci-\/dessus\ avec\ x\ allant\ de\ 0\ à VL53\_NB-\/1}}
+\DoxyCodeLine{00165\ \textcolor{preprocessor}{\ \ \ \ \#define\ VL\_0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GPIOA,\ GPIO\_PIN\_0}}
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{comment}{//\#define\ VL\_1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GPIOD,\ GPIO\_PIN\_3}}
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{comment}{//\#define\ VL\_2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GPIOE,\ GPIO\_PIN\_10}}
+\DoxyCodeLine{00168\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \textcolor{preprocessor}{\#if\ USE\_EPAPER}}
+\DoxyCodeLine{00171\ \textcolor{preprocessor}{\ \ \ \ \#define\ RST\_Pin\ \ \ \ \ \ \ \ \ \ \ \ \ GPIO\_PIN\_1}}
+\DoxyCodeLine{00172\ \textcolor{preprocessor}{\ \ \ \ \#define\ RST\_GPIO\_Port\ \ \ \ \ \ \ GPIOA}}
+\DoxyCodeLine{00173\ \textcolor{preprocessor}{\ \ \ \ \#define\ DC\_Pin\ \ \ \ \ \ \ \ \ \ \ \ \ \ GPIO\_PIN\_1}}
+\DoxyCodeLine{00174\ \textcolor{preprocessor}{\ \ \ \ \#define\ DC\_GPIO\_Port\ \ \ \ \ \ \ \ GPIOC}}
+\DoxyCodeLine{00175\ \textcolor{preprocessor}{\ \ \ \ \#define\ BUSY\_Pin\ \ \ \ \ \ \ \ \ \ \ \ GPIO\_PIN\_0}}
+\DoxyCodeLine{00176\ \textcolor{preprocessor}{\ \ \ \ \#define\ BUSY\_GPIO\_Port\ \ \ \ \ \ GPIOB}}
+\DoxyCodeLine{00177\ \textcolor{preprocessor}{\ \ \ \ \#define\ SPI\_CS\_Pin\ \ \ \ \ \ \ \ \ \ GPIO\_PIN\_4}}
+\DoxyCodeLine{00178\ \textcolor{preprocessor}{\ \ \ \ \#define\ SPI\_CS\_GPIO\_Port\ \ \ \ GPIOA}}
+\DoxyCodeLine{00179\ \textcolor{preprocessor}{\ \ \ \ \#define\ EPAPER\_SPI\ \ \ \ \ \ \ \ \ \ SPI1}}
+\DoxyCodeLine{00180\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \textcolor{preprocessor}{\#define\ USE\_SD\_CARD\ \ \ \ \ \ \ \ \ \ \ \ \ 0\ \ \ }\textcolor{comment}{//Utilisation\ d'une\ carte\ SD\ pour\ lire/écrire\ des\ fichiers}}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \textcolor{preprocessor}{\#define\ USE\_DIALOG\ \ \ \ \ \ \ \ \ \ \ \ \ \ 0\ \ \ }\textcolor{comment}{//Module\ logiciel\ permettant\ le\ dialogue\ entre\ plusieurs\ entités selon\ unn\ protocole\ maison\ générique.}}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00186\ \textcolor{comment}{//Liste\ des\ modules\ utilisant\ le\ périphérique\ I2C}}
+\DoxyCodeLine{00187\ \textcolor{preprocessor}{\#if\ USE\_MLX90614\ ||\ USE\_MPU6050\ ||\ USE\_APDS9960\ \ ||\ USE\_BH1750FVI\ ||\ USE\_BMP180\ ||\ USE\_MCP23017\ ||\ USE\_VL53L0}}
+\DoxyCodeLine{00188\ \textcolor{preprocessor}{\ \ \ \ \#define\ USE\_I2C\ \ \ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00189\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00190\ \textcolor{preprocessor}{\ \ \ \ \#ifndef\ USE\_I2C}}
+\DoxyCodeLine{00191\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ USE\_I2C\ \ \ \ \ 0}}
+\DoxyCodeLine{00192\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00193\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00194\ \textcolor{preprocessor}{\#define\ I2C\_TIMEOUT\ \ \ \ \ \ \ \ \ \ \ \ \ 5\ \ \ }\textcolor{comment}{//ms}}
+\DoxyCodeLine{00195\ \textcolor{preprocessor}{\#define\ I2C\_ON\_MULTIPLE\_PINS\ \ \ \ 0\ \ \ }\textcolor{comment}{//astuce\ permettant\ de\ rediriger\ à la\ demande\ le\ bus\ I2C\ vers\ les\ broches\ de\ remap.\ Réservé aux\ utilisateurs\ avertis.}}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00197\ \textcolor{comment}{//Liste\ des\ modules\ utilisant\ le\ périphérique\ SPI}}
+\DoxyCodeLine{00198\ \textcolor{preprocessor}{\#if\ USE\_SCREEN\_TFT\_ILI9341\ \ ||\ USE\_SD\_CARD}}
+\DoxyCodeLine{00199\ \textcolor{preprocessor}{\ \ \ \ \#define\ USE\_SPI\ \ \ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00200\ \textcolor{preprocessor}{\ \ \ \ \#define\ SPI1\_ON\_PA5\_PA6\_PA7\ \ \ \ \ 1}}
+\DoxyCodeLine{00201\ \textcolor{preprocessor}{\ \ \ \ \#define\ SPI1\_ON\_PB3\_PB4\_PB5\ \ \ \ \ 0}}
+\DoxyCodeLine{00202\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \textcolor{preprocessor}{\#if\ USE\_IR\_EMITTER\ ||\ USE\_MOTOR\_DC}}
+\DoxyCodeLine{00205\ \textcolor{preprocessor}{\ \ \ \ \#undef\ USE\_PWM}}
+\DoxyCodeLine{00206\ \textcolor{preprocessor}{\ \ \ \ \#define\ USE\_PWM\ \ \ \ \ 1}}
+\DoxyCodeLine{00207\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \textcolor{comment}{//Liste\ des\ modules\ utilisant\ le\ périphérique\ timer}}
+\DoxyCodeLine{00210\ \textcolor{preprocessor}{\#if\ USE\_HCSR04\ ||\ USE\_ADC\ ||\ USE\_PWM\ ||\ USE\_IR\_EMITTER\ ||\ USE\_IR\_RECEIVER\ ||\ USE\_VL53L0}}
+\DoxyCodeLine{00211\ \textcolor{preprocessor}{\ \ \ \ \#undef\ USE\_BSP\_TIMER}}
+\DoxyCodeLine{00212\ \textcolor{preprocessor}{\ \ \ \ \#define\ USE\_BSP\_TIMER\ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00213\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00217\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ CONFIG\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

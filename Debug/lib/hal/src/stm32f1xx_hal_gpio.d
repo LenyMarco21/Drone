@@ -10,8 +10,8 @@ lib/hal/src/stm32f1xx_hal_gpio.o: ../lib/hal/src/stm32f1xx_hal_gpio.c \
  ../lib/hal/inc/stm32f1xx_hal_gpio_ex.h \
  ../lib/hal/inc/stm32f1xx_hal_dma.h ../lib/hal/inc/stm32f1xx_hal_dma_ex.h \
  ../lib/hal/inc/stm32f1xx_hal_cortex.h ../lib/hal/inc/stm32f1xx_hal_adc.h \
- ../lib/hal/inc/stm32f1xx_hal_adc_ex.h ../lib/hal/inc/stm32f1xx_hal_dac.h \
- ../lib/hal/inc/stm32f1xx_hal_flash.h \
+ ../lib/hal/inc/stm32f1xx_hal_adc_ex.h ../lib/hal/inc/stm32f1xx_hal_crc.h \
+ ../lib/hal/inc/stm32f1xx_hal_dac.h ../lib/hal/inc/stm32f1xx_hal_flash.h \
  ../lib/hal/inc/stm32f1xx_hal_flash_ex.h \
  ../lib/hal/inc/stm32f1xx_hal_sram.h ../lib/hal/inc/stm32f1xx_ll_fsmc.h \
  ../lib/hal/inc/stm32f1xx_hal_nor.h ../lib/hal/inc/stm32f1xx_hal_i2c.h \
@@ -43,6 +43,7 @@ lib/hal/src/stm32f1xx_hal_gpio.o: ../lib/hal/src/stm32f1xx_hal_gpio.c \
 ../lib/hal/inc/stm32f1xx_hal_cortex.h:
 ../lib/hal/inc/stm32f1xx_hal_adc.h:
 ../lib/hal/inc/stm32f1xx_hal_adc_ex.h:
+../lib/hal/inc/stm32f1xx_hal_crc.h:
 ../lib/hal/inc/stm32f1xx_hal_dac.h:
 ../lib/hal/inc/stm32f1xx_hal_flash.h:
 ../lib/hal/inc/stm32f1xx_hal_flash_ex.h:

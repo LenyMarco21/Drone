@@ -1,0 +1,7 @@
+../lib/CMSIS/core/core_cm3.h:1511:22:__NVIC_EnableIRQ	16	static
+../lib/CMSIS/core/core_cm3.h:1547:22:__NVIC_DisableIRQ	16	static,ignoring_inline_asm
+../appli/receiver.c:90:6:RECEIVER_init	24	static
+../appli/receiver.c:123:8:RECEIVER_data_available	16	static
+../appli/receiver.c:137:8:RECEIVER_data_error	16	static
+../appli/receiver.c:151:6:RECEIVER_fetch_data	16	static
+../appli/receiver.c:173:13:RECEIVER_callback_routine	16	static

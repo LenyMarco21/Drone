@@ -1,4 +1,5 @@
-../appli/main.c:16:6:writeLED	16	static
-../appli/main.c:21:8:readButton	8	static
-../appli/main.c:27:6:process_ms	4	static
-../appli/main.c:34:5:main	16	static
+../appli/main.c:21:6:writeLED	16	static
+../appli/main.c:26:8:readButton	8	static
+../appli/main.c:33:6:process_ms	4	static
+../appli/main.c:41:5:main	24	static
+../appli/main.c:82:6:set_drone_position	16	static

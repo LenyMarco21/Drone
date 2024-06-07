@@ -9,8 +9,8 @@ appli/main.o: ../appli/main.c ../lib/hal/inc/stm32f1xx_hal.h \
  ../lib/hal/inc/stm32f1xx_hal_gpio_ex.h \
  ../lib/hal/inc/stm32f1xx_hal_dma.h ../lib/hal/inc/stm32f1xx_hal_dma_ex.h \
  ../lib/hal/inc/stm32f1xx_hal_cortex.h ../lib/hal/inc/stm32f1xx_hal_adc.h \
- ../lib/hal/inc/stm32f1xx_hal_adc_ex.h ../lib/hal/inc/stm32f1xx_hal_dac.h \
- ../lib/hal/inc/stm32f1xx_hal_flash.h \
+ ../lib/hal/inc/stm32f1xx_hal_adc_ex.h ../lib/hal/inc/stm32f1xx_hal_crc.h \
+ ../lib/hal/inc/stm32f1xx_hal_dac.h ../lib/hal/inc/stm32f1xx_hal_flash.h \
  ../lib/hal/inc/stm32f1xx_hal_flash_ex.h \
  ../lib/hal/inc/stm32f1xx_hal_sram.h ../lib/hal/inc/stm32f1xx_ll_fsmc.h \
  ../lib/hal/inc/stm32f1xx_hal_nor.h ../lib/hal/inc/stm32f1xx_hal_i2c.h \
@@ -25,7 +25,8 @@ appli/main.o: ../appli/main.c ../lib/hal/inc/stm32f1xx_hal.h \
  ../lib/hal/inc/stm32f1xx_hal_hcd.h ../lib/bsp/stm32f1_uart.h \
  ../lib/bsp/macro_types.h ../appli/config.h ../lib/bsp/stm32f1_sys.h \
  ../lib/bsp/stm32f1_uart.h ../lib/bsp/stm32f1_gpio.h \
- ../lib/bsp/macro_types.h ../lib/bsp/systick.h
+ ../lib/bsp/macro_types.h ../lib/bsp/systick.h ../appli/motor.h \
+ ../appli/config.h ../lib/bsp/stm32f1_motorDC.h ../appli/receiver.h
 ../lib/hal/inc/stm32f1xx_hal.h:
 ../lib/hal/inc/stm32f1xx_hal_conf.h:
 ../lib/hal/inc/stm32f1xx_hal_rcc.h:
@@ -45,6 +46,7 @@ appli/main.o: ../appli/main.c ../lib/hal/inc/stm32f1xx_hal.h \
 ../lib/hal/inc/stm32f1xx_hal_cortex.h:
 ../lib/hal/inc/stm32f1xx_hal_adc.h:
 ../lib/hal/inc/stm32f1xx_hal_adc_ex.h:
+../lib/hal/inc/stm32f1xx_hal_crc.h:
 ../lib/hal/inc/stm32f1xx_hal_dac.h:
 ../lib/hal/inc/stm32f1xx_hal_flash.h:
 ../lib/hal/inc/stm32f1xx_hal_flash_ex.h:
@@ -77,3 +79,7 @@ appli/main.o: ../appli/main.c ../lib/hal/inc/stm32f1xx_hal.h \
 ../lib/bsp/stm32f1_gpio.h:
 ../lib/bsp/macro_types.h:
 ../lib/bsp/systick.h:
+../appli/motor.h:
+../appli/config.h:
+../lib/bsp/stm32f1_motorDC.h:
+../appli/receiver.h:

@@ -1,0 +1,10 @@
+../lib/CMSIS/core/core_cm3.h:1511:22:__NVIC_EnableIRQ	2
+../lib/CMSIS/core/core_cm3.h:1547:22:__NVIC_DisableIRQ	2
+../appli/rf_receive.c:96:6:RF_RECEIVE_init	1
+../appli/rf_receive.c:130:8:RF_RECEIVE_data_available	1
+../appli/rf_receive.c:144:8:RF_RECEIVE_data_error	1
+../appli/rf_receive.c:158:6:RF_RECEIVE_fetch_data	1
+../appli/rf_receive.c:181:13:RF_RECEIVE_callback_routine	8
+../appli/rf_receive.c:261:15:RF_RECEIVE_crc_check	3
+../appli/rf_receive.c:297:6:HAL_CRC_MspInit	2
+../appli/rf_receive.c:311:6:HAL_CRC_MspDeInit	2

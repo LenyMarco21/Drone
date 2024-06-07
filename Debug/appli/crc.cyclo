@@ -1,0 +1,4 @@
+../appli/crc.c:31:6:CRC_init	1
+../appli/crc.c:52:8:CRC_compare_8b	3
+../appli/crc.c:80:6:HAL_CRC_MspInit	2
+../appli/crc.c:95:6:HAL_CRC_MspDeInit	2

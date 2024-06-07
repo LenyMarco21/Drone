@@ -1,0 +1,4 @@
+../appli/crc.c:31:6:CRC_init	8	static
+../appli/crc.c:52:8:CRC_compare_8b	32	static
+../appli/crc.c:80:6:HAL_CRC_MspInit	24	static
+../appli/crc.c:95:6:HAL_CRC_MspDeInit	16	static

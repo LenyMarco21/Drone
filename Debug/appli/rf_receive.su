@@ -1,0 +1,10 @@
+../lib/CMSIS/core/core_cm3.h:1511:22:__NVIC_EnableIRQ	16	static
+../lib/CMSIS/core/core_cm3.h:1547:22:__NVIC_DisableIRQ	16	static,ignoring_inline_asm
+../appli/rf_receive.c:96:6:RF_RECEIVE_init	24	static
+../appli/rf_receive.c:130:8:RF_RECEIVE_data_available	16	static
+../appli/rf_receive.c:144:8:RF_RECEIVE_data_error	16	static
+../appli/rf_receive.c:158:6:RF_RECEIVE_fetch_data	16	static
+../appli/rf_receive.c:181:13:RF_RECEIVE_callback_routine	16	static
+../appli/rf_receive.c:261:15:RF_RECEIVE_crc_check	32	static
+../appli/rf_receive.c:297:6:HAL_CRC_MspInit	24	static
+../appli/rf_receive.c:311:6:HAL_CRC_MspDeInit	16	static

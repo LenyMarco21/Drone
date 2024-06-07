@@ -5,23 +5,29 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../appli/foo.c \
-../appli/main.c 
+../appli/crc.c \
+../appli/main.c \
+../appli/motor.c \
+../appli/receiver.c 
 
 S_UPPER_SRCS += \
 ../appli/assembleur.S 
 
 OBJS += \
 ./appli/assembleur.o \
-./appli/foo.o \
-./appli/main.o 
+./appli/crc.o \
+./appli/main.o \
+./appli/motor.o \
+./appli/receiver.o 
 
 S_UPPER_DEPS += \
 ./appli/assembleur.d 
 
 C_DEPS += \
-./appli/foo.d \
-./appli/main.d 
+./appli/crc.d \
+./appli/main.d \
+./appli/motor.d \
+./appli/receiver.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -33,7 +39,7 @@ appli/%.o appli/%.su appli/%.cyclo: ../appli/%.c appli/subdir.mk
 clean: clean-appli
 
 clean-appli:
-	-$(RM) ./appli/assembleur.d ./appli/assembleur.o ./appli/foo.cyclo ./appli/foo.d ./appli/foo.o ./appli/foo.su ./appli/main.cyclo ./appli/main.d ./appli/main.o ./appli/main.su
+	-$(RM) ./appli/assembleur.d ./appli/assembleur.o ./appli/crc.cyclo ./appli/crc.d ./appli/crc.o ./appli/crc.su ./appli/main.cyclo ./appli/main.d ./appli/main.o ./appli/main.su ./appli/motor.cyclo ./appli/motor.d ./appli/motor.o ./appli/motor.su ./appli/receiver.cyclo ./appli/receiver.d ./appli/receiver.o ./appli/receiver.su
 
 .PHONY: clean-appli
 
